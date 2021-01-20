@@ -33,9 +33,12 @@ describe("<CitySearch /> component", () => {
 
   test("render list of suggestions correctly", () => {
     const locations = extractLocations(mockData);
+    // console.log("swag", { locations });
     const CitySearchWrapper = shallow(<CitySearch />);
     CitySearchWrapper.setState({ suggestions: locations });
+    // console.log("yolo", CitySearchWrapper.state());
     const suggestions = CitySearchWrapper.state("suggestions");
+    // console.log({ suggestions });
     expect(CitySearchWrapper.find(".suggestions li")).toHaveLength(
       suggestions.length + 1
     );
