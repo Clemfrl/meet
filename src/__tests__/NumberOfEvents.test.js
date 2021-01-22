@@ -1,30 +1,37 @@
-import React from "react";
-import { shallow } from "enzyme";
-import NumberOfEvents from "../NumberOfEvents";
+import React from 'react';
+import { shallow } from 'enzyme';
+import NumberOfEvents from '../NumberOfEvents';
 
-describe("<NumberOfEvents /> component", () => {
+describe('<NumberOfEvents /> Component', () => {
   let NumberOfEventsWrapper;
   beforeAll(() => {
-    NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+    NumberOfEventsWrapper = shallow(<NumberOfEvents />) 
   });
 
-  test("render text input", () => {
-    expect(NumberOfEventsWrapper.find(".eventNumber")).toHaveLength(1);
+  test('render the NumberOfEventsComponent', () => {
+    expect(NumberOfEventsWrapper).toHaveLength(1);
   });
 
-  test("renders text input correctly", () => {
-    const query = NumberOfEventsWrapper.state("query");
-    expect(NumberOfEventsWrapper.find(".eventNumber").prop("value")).toBe(
-      query
-    );
+  test('render number-of-events element', () => {
+    expect(NumberOfEventsWrapper.find('.number-of-events')).toHaveLength(1);
   });
 
-  test("change state when text input changes", () => {
+  test('render number-of-events-label', () => {
+    expect(NumberOfEventsWrapper.find('.number-of-events-label')).toHaveLength(1);
+  });
+
+  test('renders the text input correctly', () => {
+    const numberOfEvents = NumberOfEventsWrapper.state('numberOfEvents');
+    expect(NumberOfEventsWrapper.find('.event-number-input').prop('value')).toBe(numberOfEvents);
+  });
+
+  test('change state when the text input changes', () => {
     NumberOfEventsWrapper.setState({
-      query: "32",
+      numberOfEvents: 32,
     });
-    const eventObject = { target: { value: "20" } };
-    NumberOfEventsWrapper.find(".eventNumber").simulate("change", eventObject);
-    expect(NumberOfEventsWrapper.state("query")).toBe("20");
+    const eventObject = { target: {value: 10} };
+    NumberOfEventsWrapper.find('.event-number-input').simulate('change', eventObject);
+    expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(10);
   });
+
 });
