@@ -20,13 +20,13 @@ describe("<App /> component", () => {
     expect(AppWrapper.find(CitySearch)).toHaveLength(1);
   });
 
-  test("render event", () => {
-    expect(AppWrapper.find(Event)).toHaveLength(1);
-  });
+  // test("render event", () => {
+  //   expect(AppWrapper.find(Event)).toHaveLength(1);
+  // });
 
-  test("render NumberOfEvents", () => {
-    expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
-  });
+  // test("render NumberOfEvents", () => {
+  //   expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
+  // });
 });
 
 describe("<App /> integration", () => {

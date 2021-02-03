@@ -11,8 +11,8 @@ class App extends Component {
       <div className="App">
         <CitySearch />
         <EventList />
-        <Event />
-        <NumberOfEvents /> 
+        {/* <Event /> */}
+        {/* <NumberOfEvents /> */}
       </div>
     );
   }
