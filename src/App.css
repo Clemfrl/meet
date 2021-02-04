@@ -64,6 +64,7 @@ input[type="number"] {
   top: 43px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
 }
 
 .suggestions > li {
@@ -80,6 +81,7 @@ input[type="number"] {
 
 .suggestions > li:hover {
   background-color: rgb(250, 147, 128);
+  border-radius: 4px;
 }
 
 .event {
