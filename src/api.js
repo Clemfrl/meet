@@ -52,7 +52,7 @@ const getToken = async (code) => {
 export const getEvents = async () => {
   NProgress.start();
 
-  if (window.location.href.startsWith("http://localhost")) {
+  if (window.location.href.endsWith("?mock")) {
     NProgress.done();
     return mockData;
   }
