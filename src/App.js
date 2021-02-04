@@ -73,6 +73,7 @@ class App extends Component {
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
         />
+
         <EventList events={this.state.events} />
       </div>
     );
