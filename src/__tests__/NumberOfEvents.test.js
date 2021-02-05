@@ -1,28 +1,34 @@
 import React from "react";
 import { shallow } from "enzyme";
 import NumberOfEvents from "../NumberOfEvents";
+
 describe("<NumberOfEvents /> Component", () => {
   let NumberOfEventsWrapper;
   beforeAll(() => {
     NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() => {}} />);
   });
+
   test("render the NumberOfEventsComponent", () => {
     expect(NumberOfEventsWrapper).toHaveLength(1);
   });
+
   test("render number-of-events element", () => {
     expect(NumberOfEventsWrapper.find(".number-of-events")).toHaveLength(1);
   });
+
   test("render number-of-events-label", () => {
     expect(NumberOfEventsWrapper.find(".number-of-events-label")).toHaveLength(
       1
     );
   });
+
   test("renders the text input correctly", () => {
     const numberOfEvents = NumberOfEventsWrapper.state("numberOfEvents");
     expect(
       NumberOfEventsWrapper.find(".event-number-input").prop("value")
     ).toBe(numberOfEvents);
   });
+
   test("change state when the text input changes", () => {
     NumberOfEventsWrapper.setState({
       numberOfEvents: 32,

@@ -1,36 +1,31 @@
 import React from "react";
+import { shallow, mount } from "enzyme";
 import App from "../App";
 import EventList from "../EventList";
 import CitySearch from "../CitySearch";
-// import Event from "../Event";
+//import Event from '../Event';    //note: removal of 'render event' unit test below
 import NumberOfEvents from "../NumberOfEvents";
-import { shallow, mount } from "enzyme";
 import { mockData } from "../mock-data";
 import { extractLocations, getEvents } from "../api";
-
 describe("<App /> component", () => {
   let AppWrapper;
   beforeAll(() => {
     AppWrapper = shallow(<App />);
   });
-
   test("render list of events", () => {
     expect(AppWrapper.find(EventList)).toHaveLength(1);
   });
-
   test("render CitySearch", () => {
     expect(AppWrapper.find(CitySearch)).toHaveLength(1);
   });
-
-  // test("render event", () => {
-  //   expect(AppWrapper.find(Event)).toHaveLength(1);
+  // test('render event', () => {
+  //   expect(AppWrapper.find(Event)).toHaveLength(1); // note: removal of 'render event' test.  It seems that render event should not be inserted here
   // });
   test("render NumberOfEvents", () => {
     expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
   });
 });
-
-describe("<App /> integration", () => {
+describe("<App /> Integration", () => {
   test('App passes "events" state as a prop to EventList', () => {
     const AppWrapper = mount(<App />);
     const AppEventsState = AppWrapper.state("events");
@@ -38,7 +33,6 @@ describe("<App /> integration", () => {
     expect(AppWrapper.find(EventList).props().events).toEqual(AppEventsState);
     AppWrapper.unmount();
   });
-
   test('App passes "locations" state as a prop to CitySearch', () => {
     const AppWrapper = mount(<App />);
     const AppLocationsState = AppWrapper.state("locations");
@@ -75,7 +69,7 @@ describe("<App /> integration", () => {
     expect(AppWrapper.state("events")).toEqual(eventsToShow);
     AppWrapper.unmount();
   });
-  test('get list of all events when user selects "See all cities"', async () => {
+  test('get list of all the events when user selects "See all cities"', async () => {
     const AppWrapper = mount(<App />);
     const suggestionItems = AppWrapper.find(CitySearch).find(".suggestions li");
     await suggestionItems.at(suggestionItems.length - 1).simulate("click");
