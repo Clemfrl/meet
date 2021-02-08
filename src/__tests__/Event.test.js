@@ -73,7 +73,7 @@ describe("<Event /> Component", () => {
 
   test("render contents of the event-details", () => {
     EventWrapper.setState({ showDetails: true });
-    expect(EventWrapper.find(".event-details").children()).toHaveLength(4);
+    expect(EventWrapper.find(".event-details").children()).toHaveLength(5);
   });
 
   test("render the details button", () => {
