@@ -62,7 +62,7 @@ input[type="number"] {
   text-align: center;
   color: tomato;
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 100px;
 }
 
 .city {
@@ -314,15 +314,6 @@ input[type="number"] {
   100% {
     background-position: 100% 0;
   }
-}
-
-svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 740px;
-  height: 140px;
-  transform: translate(-50%, -50%);
 }
 
 .path {
